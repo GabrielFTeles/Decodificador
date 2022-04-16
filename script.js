@@ -45,6 +45,14 @@ function firstPhraseLetterUpperCase(array) {
 }
 
 function mainFunction(wichButton) {
+    let text = document.getElementById('text').value;
+
+    if (text == "") {
+        missingMessageContent.style.display = 'initial';
+        encryptedMessageContent.style.display = 'none';
+        return;
+    }
+
     missingMessageContent.style.display = 'none';
     encryptedMessageContent.style.display = 'initial';
 
