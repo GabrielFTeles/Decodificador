@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <title>Decodificador</title>
+    <title>Document</title>
 </head>
 <body>
     <header>
@@ -42,10 +42,13 @@
             </div>
 
             <div id="encryptedMessageContent" class="encryptedMessageContent" style="display: none;">
-                    <div class="result">
+                    <div id="result" class="result">
                         <span id="resultMsg"></span>
                     </div>
                     <input type="hidden" id="copyText" value="">
+                    <div id="copied" class="copied">
+                        <p>Copiado com sucesso!</p>
+                    </div>
                 <button id="copy">Copiar</button>
             </div>
         </div>

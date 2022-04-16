@@ -68,4 +68,14 @@ decryptButton.addEventListener('click', () => {
 
 copy.addEventListener('click', () => {
     navigator.clipboard.writeText(copyText.value);
+    copiedSucessEffect();
 });
+
+function copiedSucessEffect() {
+    const sucess = document.getElementById('copied');
+    sucess.style.opacity = '1';
+
+    setTimeout(() => {
+        sucess.style.opacity = '0';
+    }, 3000)
+}

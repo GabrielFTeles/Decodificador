@@ -79,6 +79,7 @@ body {
     font-size: 16px;
     line-height: 19px;
     color: white;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
 .buttons button:nth-child(2) {
@@ -87,6 +88,7 @@ body {
     border: 1px solid #0A3871;
     background: transparent;
     color: #0A3871;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
 .encrypted {
@@ -135,6 +137,7 @@ body {
 .encryptedMessageContent {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .encryptedMessageContent button {
@@ -162,4 +165,24 @@ body {
 
 .result::-webkit-scrollbar {
     display: none;
-  }
+}
+
+.copied {
+    opacity: 0;
+    bottom: 60px;
+    left: 0px;
+    position: absolute;
+    width: 335px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #24ac7a;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
+    text-align: center;
+    transition: 1.2s;
+}
+
+.copied p {
+    margin-top: 8px;
+    color: white;
+    font-weight: 700;
+}
