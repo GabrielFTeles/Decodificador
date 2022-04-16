@@ -1,0 +1,165 @@
+* {margin: 0; box-sizing: border-box; font-family: 'Inter'; font-weight: 400; font-style: normal; border: none; word-wrap: break-word;}
+
+body {
+    background-color: #F3F5FC;
+    padding: 40px;
+}
+
+.logo {
+    position: absolute;
+}
+
+.encryptText {
+    position: absolute;
+    width: 680px;
+    height: 600px;
+    left: 240px;
+    top: 168px;
+}
+
+.encryptText textarea { 
+    width: 680px;
+    height: 600px;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;
+}
+
+.encryptText textarea:focus {
+    outline: none;
+}
+
+.encryptText textarea::-webkit-scrollbar {
+    display: none;
+  }
+
+.encryptText textarea::placeholder {
+    color: #0A3871;
+}
+
+.info {
+    display: flex;
+    position: absolute;
+    width: 300px;
+    height: 18px;
+    left: 240px;
+    top: 851px;
+}
+
+.info span {
+    font-size: 12px;
+    line-height: 150%;
+    color: #495057;
+    opacity: 0.8;
+    margin: 0px 8px;
+}
+
+.buttons {
+    display: flex;
+    gap: 24px;
+    position: absolute;
+    width: 680px;
+    height: 67px;
+    left: 240px;
+    top: 885px;
+}
+
+.buttons button {
+    height: 67px;
+    width: 328px;
+    border-radius: 24px;
+    cursor: pointer;
+}
+
+.buttons button:nth-child(1) {
+    background: #0A3871;
+    font-size: 16px;
+    line-height: 19px;
+    color: white;
+}
+
+.buttons button:nth-child(2) {
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid #0A3871;
+    background: transparent;
+    color: #0A3871;
+}
+
+.encrypted {
+    padding: 32px;
+    border-radius: 32px;
+    position: absolute;
+    left: 1000px;
+    top: 40px;
+    height: 944px;
+    width: 400px;
+    background-color: white;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+.missingMessageContent {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.missingMessage {
+    margin-top: 32px;
+    text-align: center;
+    width: 336px;
+    height: 122px;
+}
+
+.missingMessage h2 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: #343A40;
+}
+
+.missingMessage p {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 150%;
+    color: #495057;
+}
+
+.encryptedMessageContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.encryptedMessageContent button {
+    margin-top: 32px;
+    border-radius: 24px;
+    border: 1px solid #0A3871;
+    color: #0A3871;
+    background: transparent;
+    width: 336px;
+    height: 67px;
+    cursor: pointer;
+}
+
+.result {
+    width: 336px;
+    height: 781px;
+    overflow: scroll;
+}
+
+.result span {
+    font-size: 24px;
+    line-height: 150%;
+    color: #495057;
+}
+
+.result::-webkit-scrollbar {
+    display: none;
+  }
