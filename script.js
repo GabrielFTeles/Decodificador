@@ -6,43 +6,19 @@ const result                  = document.getElementById('resultMsg');
 const copy                    = document.getElementById('copy');
 const copyText                = document.getElementById('copyText');
 
-function encryptOrDecrypt(encOrDec) {
-    let text = document.getElementById('text').value.toLowerCase();
-    let textEncrypted;
 
-    if (encOrDec == 'encrypt') {
-        textEncrypted = text.replaceAll('e', 'enter');
-        textEncrypted = textEncrypted.replaceAll('i', 'imes');
-        textEncrypted = textEncrypted.replaceAll('a', 'ai');
-        textEncrypted = textEncrypted.replaceAll('o', 'ober');
-        textEncrypted = textEncrypted.replaceAll('u', 'ufat');
-    } else {
-        textEncrypted = text.replaceAll('enter', 'e');
-        textEncrypted = textEncrypted.replaceAll('imes', 'i');
-        textEncrypted = textEncrypted.replaceAll('ai', 'a');
-        textEncrypted = textEncrypted.replaceAll('ober', 'o');
-        textEncrypted = textEncrypted.replaceAll('ufat', 'u');
-    }
+encryptButton.addEventListener('click', () => {
+    mainFunction('encrypt');
+});
 
-    return textEncrypted;
-}
+decryptButton.addEventListener('click', () => {
+    mainFunction('decrypt')
+});
 
-function firstPhraseLetterUpperCase(array) {
-    let i = 0;
-    for (let phrase of array) {
-        if (phrase.trim() == '') {
-            array.splice(i, 1);
-            continue;
-        }
-
-        array[i] = array[i].trim();
-        phrase = array[i];
-        array[i] = phrase[0].toUpperCase() + array[i].slice(1);
-        i++;
-    }
-
-    return array;
-}
+copy.addEventListener('click', () => {
+    navigator.clipboard.writeText(copyText.value);
+    copiedSucessEffect();
+});
 
 function mainFunction(wichButton) {
     let text = document.getElementById('text').value;
@@ -66,18 +42,42 @@ function mainFunction(wichButton) {
     result.innerText = textSplitted.join('. ');
 }
 
-encryptButton.addEventListener('click', () => {
-    mainFunction('encrypt');
-});
+function encryptOrDecrypt(encOrDec) {
+    let text = document.getElementById('text').value.toLowerCase();
+    let textEncrypted;
 
-decryptButton.addEventListener('click', () => {
-    mainFunction('decrypt')
-});
+    if (encOrDec == 'encrypt') {
+        textEncrypted = text.replaceAll('e', 'enter');
+        textEncrypted = textEncrypted.replaceAll('i', 'imes');
+        textEncrypted = textEncrypted.replaceAll('a', 'ai');
+        textEncrypted = textEncrypted.replaceAll('o', 'ober');
+        textEncrypted = textEncrypted.replaceAll('u', 'ufat');
+    } else {
+        textEncrypted = text.replaceAll('enter', 'e');
+        textEncrypted = textEncrypted.replaceAll('imes', 'i');
+        textEncrypted = textEncrypted.replaceAll('ai', 'a');
+        textEncrypted = textEncrypted.replaceAll('ober', 'o');
+        textEncrypted = textEncrypted.replaceAll('ufat', 'u');
+    }
+    return textEncrypted;
+}
 
-copy.addEventListener('click', () => {
-    navigator.clipboard.writeText(copyText.value);
-    copiedSucessEffect();
-});
+function firstPhraseLetterUpperCase(array) {
+    let i = 0;
+    for (let phrase of array) {
+        if (phrase.trim() == '') {
+            array.splice(i, 1);
+            continue;
+        }
+
+        array[i] = array[i].trim();
+        phrase = array[i];
+        array[i] = phrase[0].toUpperCase() + array[i].slice(1);
+        i++;
+    }
+
+    return array;
+}
 
 function copiedSucessEffect() {
     const sucess = document.getElementById('copied');
