@@ -13,7 +13,7 @@ body {
     position: absolute;
     width: 680px;
     height: 600px;
-    left: 240px;
+    left: 13vw;
     top: 168px;
 }
 
@@ -32,12 +32,19 @@ body {
     outline: none;
 }
 
-.encryptText textarea::-webkit-scrollbar {
-    display: none;
-  }
-
 .encryptText textarea::placeholder {
     color: #0A3871;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.encryptText textarea::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.encryptText textarea {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .info {
@@ -46,7 +53,7 @@ body {
     width: 300px;
     height: 18px;
     left: 240px;
-    top: 851px;
+    bottom: 160px;
 }
 
 .info span {
@@ -63,8 +70,8 @@ body {
     position: absolute;
     width: 680px;
     height: 67px;
-    left: 240px;
-    top: 885px;
+    left: 13vw;
+    bottom: 80px;
 }
 
 .buttons button {
@@ -95,9 +102,9 @@ body {
     padding: 32px;
     border-radius: 32px;
     position: absolute;
-    left: 1000px;
+    right: 40px;
     top: 40px;
-    height: 944px;
+    height: 90vh;
     width: 400px;
     background-color: white;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
@@ -141,7 +148,7 @@ body {
 }
 
 .encryptedMessageContent button {
-    margin-top: 32px;
+    position: relative;
     border-radius: 24px;
     border: 1px solid #0A3871;
     color: #0A3871;
@@ -153,7 +160,7 @@ body {
 
 .result {
     width: 336px;
-    height: 781px;
+    height: 75vh;
     overflow: scroll;
 }
 
@@ -163,8 +170,15 @@ body {
     color: #495057;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
 .result::-webkit-scrollbar {
     display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.result {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 .copied {
@@ -179,6 +193,7 @@ body {
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
     text-align: center;
     transition: 1.2s;
+    cursor: default;
 }
 
 .copied p {
