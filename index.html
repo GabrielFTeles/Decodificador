@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Decodificador</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="logo">
-            <img src="./images/Frame 6.svg" alt="">
-        </div>
+      <div class="logo">
+        <img src="./images/Frame 6.svg" alt="" />
+      </div>
     </header>
     <main>
-        <div class="encrypter">
-            <div class="encryptText">
-                <textarea name="text" id="text" placeholder="Digite seu texto"></textarea>
-            </div>
-            <div class="info">
-                <img src="./images/Vector.svg" alt="">
-                <span>Apenas letras sem acento.</span>
-            </div>
-            <div class="buttons">
-                <button id="encryptBtn">Criptografar</button>
-                <button id="decryptBtn">Descriptografar</button>
-            </div>
+      <div class="encrypter">
+        <div class="encryptText">
+          <textarea
+            name="text"
+            id="text"
+            placeholder="Digite seu texto"
+          ></textarea>
         </div>
-        <div class="encrypted">
-            <div id="missingMessageContent" class="missingMessageContent">
-                <div class="image">
-                    <img src="./images/High quality products 1 1.svg" alt="">
-                </div>
-                <div class="missingMessage">
-                    <h2>Nenhuma mensagem encontrada</h2>
-                    <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
-                </div>
-            </div>
+        <div class="info">
+          <img src="./images/Vector.svg" alt="" />
+          <span>Apenas letras sem acento.</span>
+        </div>
+        <div class="buttons">
+          <button id="encryptBtn">Criptografar</button>
+          <button id="decryptBtn">Descriptografar</button>
+        </div>
+      </div>
+      <div class="encrypted">
+        <div id="missingMessageContent" class="missingMessageContent">
+          <div class="image">
+            <img src="./images/High quality products 1 1.svg" alt="" />
+          </div>
+          <div class="missingMessage">
+            <h2>Nenhuma mensagem encontrada</h2>
+            <p>
+              Digite um texto que você deseja criptografar ou descriptografar.
+            </p>
+          </div>
+        </div>
 
-            <div id="encryptedMessageContent" class="encryptedMessageContent" style="display: none;">
-                    <div id="result" class="result">
-                        <span id="resultMsg"></span>
-                    </div>
-                    <input type="hidden" id="copyText" value="">
-                    <div id="copied" class="copied">
-                        <p>Copiado com sucesso!</p>
-                    </div>
-                <button id="copy">Copiar</button>
-            </div>
+        <div
+          id="encryptedMessageContent"
+          class="encryptedMessageContent"
+          style="display: none"
+        >
+          <div id="result" class="result">
+            <span id="resultMsg"></span>
+          </div>
+          <input type="hidden" id="copyText" value="" />
+          <div id="copied" class="copied">
+            <p>Copiado com sucesso!</p>
+          </div>
+          <button id="copy">Copiar</button>
         </div>
+      </div>
     </main>
-</body>
-<script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
