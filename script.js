@@ -6,6 +6,10 @@ const result                  = document.getElementById('resultMsg');
 const copy                    = document.getElementById('copy');
 const copyText                = document.getElementById('copyText');
 
+let textEncrypted;
+let letters = ['e', 'i', 'a', 'o', 'u'];
+let replaceText = ['enter', 'imes', 'ai', 'ober', 'ufat'];
+
 
 encryptButton.addEventListener('click', () => {
     mainFunction('encrypt');
@@ -21,7 +25,8 @@ copy.addEventListener('click', () => {
 });
 
 function mainFunction(wichButton) {
-    let text = document.getElementById('text').value;
+    let text = document.getElementById('text').value.toLowerCase();
+    textEncrypted = text;
 
     if (text == "") {
         missingMessageContent.style.display = 'initial';
@@ -32,9 +37,9 @@ function mainFunction(wichButton) {
     missingMessageContent.style.display = 'none';
     encryptedMessageContent.style.display = 'initial';
 
-    const textEncrypted = encryptOrDecrypt(wichButton);
+    const encryptOrDecryptResult = encryptOrDecrypt(wichButton);
 
-    let textSplitted = textEncrypted.split('.');
+    let textSplitted = encryptOrDecryptResult.split('.');
 
     textSplitted = firstPhraseLetterUpperCase(textSplitted);
 
@@ -43,37 +48,37 @@ function mainFunction(wichButton) {
 }
 
 function encryptOrDecrypt(encOrDec) {
-    let text = document.getElementById('text').value.toLowerCase();
-    let textEncrypted;
-
     if (encOrDec == 'encrypt') {
-        textEncrypted = text.replaceAll('e', 'enter');
-        textEncrypted = textEncrypted.replaceAll('i', 'imes');
-        textEncrypted = textEncrypted.replaceAll('a', 'ai');
-        textEncrypted = textEncrypted.replaceAll('o', 'ober');
-        textEncrypted = textEncrypted.replaceAll('u', 'ufat');
+        let i = 0;
+        for (let letter of letters) {
+            cryptography(letter, replaceText[i])
+            i++;
+        }
     } else {
-        textEncrypted = text.replaceAll('enter', 'e');
-        textEncrypted = textEncrypted.replaceAll('imes', 'i');
-        textEncrypted = textEncrypted.replaceAll('ai', 'a');
-        textEncrypted = textEncrypted.replaceAll('ober', 'o');
-        textEncrypted = textEncrypted.replaceAll('ufat', 'u');
+        let i = 0;
+        for (let textToDecrypt of replaceText) {
+            cryptography(textToDecrypt, letters[i])
+            i++;
+        }
     }
+
     return textEncrypted;
 }
 
+function cryptography(a, b) {
+    textEncrypted = textEncrypted.replaceAll(a, b)
+}
+
 function firstPhraseLetterUpperCase(array) {
-    let i = 0;
-    for (let phrase of array) {
-        if (phrase.trim() == '') {
+    for (let i in array) {
+        if (array[i].trim() == '') {
             array.splice(i, 1);
             continue;
         }
 
         array[i] = array[i].trim();
-        phrase = array[i];
-        array[i] = phrase[0].toUpperCase() + array[i].slice(1);
-        i++;
+        let phrase = array[i];
+        array[i] = phrase[0].toUpperCase() + phrase.slice(1);
     }
 
     return array;
