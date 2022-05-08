@@ -31,16 +31,18 @@ button {
 
 .container {
     width: min(50rem, 100%);
+    
+    padding: 4rem;
     margin-inline: auto;
 }
 
 .header-content {
-    padding: 2.4rem 1.6rem;
+    padding-bottom: 4rem;
     margin-inline: auto;
 }
 
 .main-content {
-    padding: 2rem 1.6rem 1.6rem;
+
     margin-inline: auto;
 }
 
@@ -261,10 +263,14 @@ scrollbar-width: none;  /* Firefox */
 
         display: grid;
         grid-template-columns: 1fr 48rem;
+        grid-template-areas: 
+        'A C'
+        'B C';
     }
 
-    header .container {
-        padding: 4rem 8.4rem;
+    .header-content {
+        padding-top: 4rem;
+        padding-left: 4.4rem;
     }
 
     .main-content textarea {
@@ -272,11 +278,19 @@ scrollbar-width: none;  /* Firefox */
     }
 
     .col-a {
-        padding-left: 15rem;
+        grid-area: A;
     }
 
     .col-b {
-        padding-inline: 4rem;
+        padding-left: 15rem;
+
+        grid-area: B;
+    }
+
+    .col-c {
+        padding: 4rem 4rem 0;
+
+        grid-area: C;
     }
 
     .result-container {

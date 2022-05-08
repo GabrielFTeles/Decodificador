@@ -9,18 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <title>Encriptador</title>
+    <title>Decodificador</title>
 </head>
 <body>
-    <header>
-        <div class="header-content container">
-            <img src="./assets/logo.svg" alt="">
-        </div>
-    </header>
-
     <main>
         <div class="main-content container">
-            <div class="col-a">
+            <header class="col-a">
+                <div class="header-content">
+                    <img src="./assets/logo.svg" alt="">
+                </div>
+            </header>
+
+            <div class="col-b">
                 <textarea name="text" id="text" placeholder="Digite seu texto"></textarea>
 
                 <span><img src="./assets/exclamation.svg" alt=""> <p>Apenas letras sem acento.</p></span>
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="col-b">
+            <div class="col-c">
                 <div class="result-container">
                     <div class="missing-message">
                         <img id="missing-message-image" src="./assets/missing-message.png" alt="">
