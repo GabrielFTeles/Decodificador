@@ -1,203 +1,306 @@
-* {margin: 0; box-sizing: border-box; font-family: 'Inter'; font-weight: 400; font-style: normal; border: none; word-wrap: break-word;}
+* {box-sizing: border-box; font-family: 'Inter', sans-serif; border: none;}
+
+:root {
+    --primary-color: hsl(213, 84%, 24%);
+
+    --bg-light: hsl(227, 60%, 97%);
+
+    font-size: 62.5%;
+}
+
+/* === GLOBAL ===================== */
+
+body,
+main {
+    height: 100%;
+}
 
 body {
-    background-color: #F3F5FC;
-    padding: 40px;
+    background-color: var(--bg-light);
+
+    font-size: 1.6rem;
 }
 
-.logo {
-    position: absolute;
+button {
+    height: 6.7rem;
+
+    border-radius: 2.4rem;
+
+    cursor: pointer;
 }
 
-.encryptText {
-    position: absolute;
-    width: 680px;
-    height: 600px;
-    left: 13vw;
-    top: 168px;
+.container {
+    width: min(50rem, 100%);
+    margin-inline: auto;
 }
 
-.encryptText textarea { 
-    width: 680px;
-    height: 600px;
+.header-content {
+    padding: 2.4rem 1.6rem;
+    margin-inline: auto;
+}
+
+.main-content {
+    padding: 2rem 1.6rem 1.6rem;
+    margin-inline: auto;
+}
+
+.main-content textarea {
+    width: 100%;
+    height: 35rem;
+
     resize: none;
-    border: none;
-    background-color: transparent;
-    font-size: 32px;
+
+    font-size: 3.2rem;
     line-height: 150%;
-    color: #0A3871;
+
+    color: var(--primary-color);
+
+    background-color: transparent;
 }
 
-.encryptText textarea:focus {
+.main-content textarea::placeholder {
+    color: var(--primary-color);
+}
+
+.main-content textarea:focus {
     outline: none;
 }
 
-.encryptText textarea::placeholder {
-    color: #0A3871;
-}
-
 /* Hide scrollbar for Chrome, Safari and Opera */
-.encryptText textarea::-webkit-scrollbar {
+.result .text-result::-webkit-scrollbar,
+.main-content textarea::-webkit-scrollbar {
     display: none;
-}
+  }
   
-  /* Hide scrollbar for IE, Edge and Firefox */
-.encryptText textarea {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+/* Hide scrollbar for IE, Edge and Firefox */
+.result .text-result,
+.main-content textarea {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
 }
 
-.info {
+.main-content span {
+    margin-top: 1.6rem;
+
     display: flex;
-    position: absolute;
-    width: 300px;
-    height: 18px;
-    left: 240px;
-    bottom: 160px;
+    align-items: center;
+    gap: 0.8rem;
 }
 
-.info span {
-    font-size: 12px;
+.main-content span p {
+    font-size: 1.2rem;
     line-height: 150%;
-    color: #495057;
-    opacity: 0.8;
-    margin: 0px 8px;
+    color: hsl(210, 10%, 23%);
 }
 
 .buttons {
     display: flex;
-    gap: 24px;
-    position: absolute;
-    width: 680px;
-    height: 67px;
-    left: 13vw;
-    bottom: 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+
+    margin-block: 4rem;
 }
 
 .buttons button {
-    height: 67px;
-    width: 328px;
-    border-radius: 24px;
-    cursor: pointer;
+    width: min(34.3rem, 100%);
 }
 
-.buttons button:nth-child(1) {
-    background: #0A3871;
-    font-size: 16px;
-    line-height: 19px;
+.buttons #encrypt {
+    background-color: var(--primary-color);
+
     color: white;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
 }
 
-.buttons button:nth-child(2) {
-    font-size: 16px;
-    line-height: 19px;
-    border: 1px solid #0A3871;
-    background: transparent;
-    color: #0A3871;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+.buttons #encrypt:hover {
+    background-color: hsl(213, 84%, 15%);
 }
 
-.encrypted {
-    padding: 32px;
-    border-radius: 32px;
-    position: absolute;
-    right: 40px;
-    top: 40px;
-    height: 90vh;
-    width: 400px;
-    background-color: white;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+.result button,
+.buttons #decrypt {
+    background-color: transparent;
+
+    color: var(--primary-color);
+
+    border: 1px solid var(--primary-color);
+
+    transition: 0.2s;
 }
 
-.missingMessageContent {
-    position: absolute;
-    top: 25%;
-    left: 8%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.result button:hover,
+.buttons #decrypt:hover {
+    background-color: var(--primary-color);
+
+    color: white;
 }
 
-.missingMessage {
-    margin-top: 32px;
+.result-container {
     text-align: center;
-    width: 336px;
-    height: 122px;
+
+    padding: 3.2rem;
+
+    background-color: white;
+
+    border-radius: 3.2rem;
+
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
-.missingMessage h2 {
+.missing-message #missing-message-image {
+    display: none;
+}
+
+.missing-message h2 {
+    margin-inline: auto;
+    margin-bottom: 1.4rem;
+
+    color: hsl(210, 10%, 23%);
     font-weight: 700;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 120%;
-    color: #343A40;
 }
 
-.missingMessage p {
-    margin-top: 16px;
-    font-size: 16px;
+.missing-message p {
     line-height: 150%;
-    color: #495057;
-}
-
-.encryptedMessageContent {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.encryptedMessageContent button {
-    position: relative;
-    border-radius: 24px;
-    border: 1px solid #0A3871;
-    color: #0A3871;
-    background: transparent;
-    width: 336px;
-    height: 67px;
-    cursor: pointer;
+    color: hsl(210, 9%, 31%);
 }
 
 .result {
-    width: 336px;
-    height: 75vh;
+    position: relative;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+
+    word-wrap: break-word;
+}
+
+.result .text-result {
+    text-align: left;
+    font-size: 2.4rem;
+    line-height: 150%;
+
+    color: hsl(210, 9%, 31%);
+
+    width: 100%;
+    max-height: 43.2rem;
+
     overflow: scroll;
 }
 
-.result span {
-    font-size: 24px;
-    line-height: 150%;
-    color: #495057;
-}
+.result .sucess-copied {
+    height: 3rem;
+    width: 100%;
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.result::-webkit-scrollbar {
-    display: none;
-}
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-.result {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
+    padding-block: 2rem;
 
-.copied {
-    opacity: 0;
-    bottom: 60px;
-    left: 0px;
-    position: absolute;
-    width: 335px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: #24ac7a;
-    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
-    text-align: center;
-    transition: 1.2s;
-    cursor: default;
-}
-
-.copied p {
-    margin-top: 8px;
     color: white;
     font-weight: 700;
+
+    user-select: none;
+
+    position: absolute;
+    bottom: 7.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background-color: #24ac7a;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.6s;
+}
+
+.result button {
+    margin-top: 5rem;
+
+    width: 100%;
+}
+
+
+
+@media (min-width: 768px) {
+
+    main .buttons {
+        width: 100%;
+        flex-direction: row;          
+    }
+
+    main .buttons button {
+        width: 33.2rem;
+    }
+
+    .container {
+        padding-inline: 4rem;
+
+        width: 76.8rem;
+    }
+    
+    .main-content textarea {
+        height: 58rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        width: 144rem;
+
+        padding: 0;
+
+        display: grid;
+        grid-template-columns: 1fr 48rem;
+    }
+
+    header .container {
+        padding: 4rem 8.4rem;
+    }
+
+    .main-content textarea {
+        width: 70rem;
+    }
+
+    .col-a {
+        padding-left: 15rem;
+    }
+
+    .col-b {
+        padding-inline: 4rem;
+    }
+
+    .result-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        height: 95%;
+    }
+
+    .result {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;    
+    }
+
+    .missing-message #missing-message-image {
+        display: block;
+
+        margin-bottom: 3.2rem;
+    }
+
+    .result .text-result {
+        max-height: 55rem;
+    }
 }

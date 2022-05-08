@@ -1,94 +1,58 @@
-const encryptButton           = document.getElementById('encryptBtn');
-const decryptButton           = document.getElementById('decryptBtn');
-const missingMessageContent   = document.getElementById('missingMessageContent');
-const encryptedMessageContent = document.getElementById('encryptedMessageContent');
-const result                  = document.getElementById('resultMsg');
-const copy                    = document.getElementById('copy');
-const copyText                = document.getElementById('copyText');
+const resultDiv = document.querySelector('.result');
+const missingMessageDiv = document.querySelector('.missing-message')
 
-let textEncrypted;
 let letters = ['e', 'i', 'a', 'o', 'u'];
 let replaceText = ['enter', 'imes', 'ai', 'ober', 'ufat'];
 
+function mainButtonsClick(encryptOrDecrypt) {
+    let userText = text.value.toLowerCase();
 
-encryptButton.addEventListener('click', () => {
-    mainFunction('encrypt');
-});
-
-decryptButton.addEventListener('click', () => {
-    mainFunction('decrypt')
-});
-
-copy.addEventListener('click', () => {
-    navigator.clipboard.writeText(copyText.value);
-    copiedSucessEffect();
-});
-
-function mainFunction(wichButton) {
-    let text = document.getElementById('text').value.toLowerCase();
-    textEncrypted = text;
-
-    if (text == "") {
-        missingMessageContent.style.display = 'initial';
-        encryptedMessageContent.style.display = 'none';
+    if (userText == '') {
+        hideMissingMessageDiv();
         return;
-    }
-
-    missingMessageContent.style.display = 'none';
-    encryptedMessageContent.style.display = 'initial';
-
-    const encryptOrDecryptResult = encryptOrDecrypt(wichButton);
-
-    let textSplitted = encryptOrDecryptResult.split('.');
-
-    textSplitted = firstPhraseLetterUpperCase(textSplitted);
-
-    copyText.value   = textSplitted.join('. ');
-    result.innerText = textSplitted.join('. ');
-}
-
-function encryptOrDecrypt(encOrDec) {
-    if (encOrDec == 'encrypt') {
-        let i = 0;
-        for (let letter of letters) {
-            cryptography(letter, replaceText[i])
-            i++;
-        }
     } else {
-        let i = 0;
-        for (let textToDecrypt of replaceText) {
-            cryptography(textToDecrypt, letters[i])
-            i++;
-        }
+        showResultDiv();
     }
 
-    return textEncrypted;
-}
-
-function cryptography(a, b) {
-    textEncrypted = textEncrypted.replaceAll(a, b)
-}
-
-function firstPhraseLetterUpperCase(array) {
-    for (let i in array) {
-        if (array[i].trim() == '') {
-            array.splice(i, 1);
-            continue;
-        }
-
-        array[i] = array[i].trim();
-        let phrase = array[i];
-        array[i] = phrase[0].toUpperCase() + phrase.slice(1);
+    let i = 0;
+    for (let letter of letters) {
+        userText = cryptography(letter, replaceText[i], encryptOrDecrypt, userText);
+        i++;
     }
 
-    return array;
+    resultText.innerText = userText;
+}
+
+function cryptography(a, b, encryptOrDecrypt, userText) {
+    if (encryptOrDecrypt == 'encrypt') {
+        return userText.replaceAll(a, b);
+    } else {
+        return userText.replaceAll(b, a);
+    }
+    
+}
+
+function hideMissingMessageDiv() {
+    missingMessageDiv.style.display = 'initial';
+    resultDiv.style.display = 'none';
+}
+
+function showResultDiv() {
+    missingMessageDiv.style.display = 'none';
+    resultDiv.style.display = 'flex';
+}
+
+function copyText() {
+    navigator.clipboard.writeText(resultText.textContent);
+    copiedSucessEffect();
 }
 
 function copiedSucessEffect() {
-    const sucess = document.getElementById('copied');
-    sucess.style.opacity = '1';
+    copiedSucess.style.visibility = 'initial';
+    copiedSucess.style.opacity = '1';
 
     setTimeout(() => {
-        sucess.style.opacity = '0';
-    }, 3000)
+        copiedSucess.style.visibility = 'hidden';
+        copiedSucess.style.opacity = '0';
+    }, 3000);
 }
