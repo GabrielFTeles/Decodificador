@@ -23,11 +23,11 @@ function mainButtonsClick(encryptOrDecrypt) {
     resultText.innerText = userText;
 }
 
-function cryptography(a, b, encryptOrDecrypt, userText) {
+function cryptography(letter, textReplace, encryptOrDecrypt, userText) {
     if (encryptOrDecrypt == 'encrypt') {
-        return userText.replaceAll(a, b);
+        return userText.replaceAll(letter, textReplace);
     } else {
-        return userText.replaceAll(b, a);
+        return userText.replaceAll(textReplace, letter);
     }
     
 }
