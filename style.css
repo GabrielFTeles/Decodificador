@@ -141,7 +141,7 @@ scrollbar-width: none;  /* Firefox */
     color: white;
 }
 
-.result-container {
+.result-content {
     text-align: center;
 
     padding: 3.2rem;
@@ -293,7 +293,7 @@ scrollbar-width: none;  /* Firefox */
         grid-area: C;
     }
 
-    .result-container {
+    .result-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
