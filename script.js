@@ -8,7 +8,7 @@ function mainButtonsClick(encryptOrDecrypt) {
     let userText = text.value.toLowerCase();
 
     if (userText == '') {
-        hideMissingMessageDiv();
+        showMissingMessageDiv();
         return;
     } else {
         showResultDiv();
@@ -30,7 +30,7 @@ function cryptography(letter, textReplace, encryptOrDecrypt, userText) {
     
 }
 
-function hideMissingMessageDiv() {
+function showMissingMessageDiv() {
     missingMessageDiv.style.display = 'initial';
     resultDiv.style.display = 'none';
 }
