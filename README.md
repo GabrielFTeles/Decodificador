@@ -11,6 +11,8 @@ This is a solution to the first challenge of the Bootcamp.
 
 ## Overview
 
+- Git Pages - [Project](https://gabrielfteles.github.io/Decodificador/)
+
 ### The challenge
 
 Users should be able to:
@@ -54,6 +56,5 @@ const proudOfThisFunc = () => {
 
 ## Author
 
-- Git Pages - [Project](https://gabrielfteles.github.io/Decodificador/)
 - Linkedin - [Gabriel Teles](https://www.linkedin.com/in/gabriel-teles-b28709234/)
 - Twitter - [@ToVivendoErrado](https://www.twitter.com/ToVivendoErrado)
