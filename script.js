@@ -1,8 +1,7 @@
 const resultDiv = document.querySelector('.result');
 const missingMessageDiv = document.querySelector('.missing-message')
 
-let letters = ['e', 'i', 'a', 'o', 'u'];
-let replaceText = ['enter', 'imes', 'ai', 'ober', 'ufat'];
+const cryptography = [['e', 'enter'], ['i', 'imes'], ['a', 'ai'], ['o', 'ober'], ['u', 'ufat']];
 
 function mainButtonsClick(encryptOrDecrypt) {
     let userText = text.value.toLowerCase();
@@ -14,14 +13,14 @@ function mainButtonsClick(encryptOrDecrypt) {
         showResultDiv();
     }
 
-    for (let i = 0; i < letters.length; i++) {
-        userText = cryptography(letters[i], replaceText[i], encryptOrDecrypt, userText);
+    for (let i = 0; i < cryptography.length; i++) {
+        userText = cryptographyText(cryptography[i][0], cryptography[i][1], encryptOrDecrypt, userText);
     }
 
     resultText.innerText = userText;
 }
 
-function cryptography(letter, textReplace, encryptOrDecrypt, userText) {
+function cryptographyText(letter, textReplace, encryptOrDecrypt, userText) {
     if (encryptOrDecrypt == 'encrypt') {
         return userText.replaceAll(letter, textReplace);
     } else {
