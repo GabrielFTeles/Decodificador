@@ -14,10 +14,8 @@ function mainButtonsClick(encryptOrDecrypt) {
         showResultDiv();
     }
 
-    let i = 0;
-    for (let letter of letters) {
-        userText = cryptography(letter, replaceText[i], encryptOrDecrypt, userText);
-        i++;
+    for (let i = 0; i < letters.length; i++) {
+        userText = cryptography(letters[i], replaceText[i], encryptOrDecrypt, userText);
     }
 
     resultText.innerText = userText;
