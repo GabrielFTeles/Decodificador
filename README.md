@@ -11,6 +11,8 @@ This is a solution to the first challenge of the Bootcamp.
 
 ## Overview
 
+### Pages
+
 Git Pages - [Project](https://gabrielfteles.github.io/Decodificador/)
 
 ### The challenge
