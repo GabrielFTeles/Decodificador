@@ -23,15 +23,15 @@ Users should be able to:
 
 ![](./screenshot.png)
 
-# Built with
+## Built with
 
-##Technologies
+Technologies
 
 - HTML
 - CSS
 - JavaScript
 
-##Other
+Other
 
 - Semantic HTML5 markup
 - CSS custom properties
